@@ -297,7 +297,7 @@ Recording = function (drawingArg)
 	this.drawing = drawingArg;
 	
 	this.buffer = new Array(); //array of Point objects 
-	this.timeInterval = 100; //10 miliseconds
+	this.timeInterval = 0; //0 miliseconds
 	this.currTime = 0;
 	this.started = false;
 	this.intervalId = null;

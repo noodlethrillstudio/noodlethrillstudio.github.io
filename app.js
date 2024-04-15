@@ -1,19 +1,19 @@
-// Function to toggle between different sections based on navigation
-function toggleSection(sectionId) {
-    document.querySelectorAll('section').forEach(function(section) {
-        section.style.display = 'none';
-    });
-    document.getElementById(sectionId).style.display = 'block';
-}
+// // Function to toggle between different sections based on navigation
+// function toggleSection(sectionId) {
+//     document.querySelectorAll('section').forEach(function(section) {
+//         section.style.display = 'none';
+//     });
+//     document.getElementById(sectionId).style.display = 'block';
+// }
 
-// Navigation functionality
-document.querySelectorAll('nav a').forEach(function(navLink) {
-    navLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        var sectionId = navLink.getAttribute('href').substring(1);
-        toggleSection(sectionId);
-    });
-});
+// // Navigation functionality
+// document.querySelectorAll('nav a').forEach(function(navLink) {
+//     navLink.addEventListener('click', function(event) {
+//         event.preventDefault();
+//         var sectionId = navLink.getAttribute('href').substring(1);
+//         toggleSection(sectionId);
+//     });
+// });
 
 
 

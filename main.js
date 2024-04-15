@@ -6,6 +6,220 @@ $(document).ready(function(){
 	startScript("drawing-board-recording")
 });
 
+
+		//Define the functions that the event handlers call. 
+
+		function playRecordings()
+		{
+			if (drawing.recordings.length == 0)
+			{
+				alert("No recording to play");
+				return;
+			}
+			var btnTxt = $("#playBtn").prop("value");
+			if (btnTxt == 'Stop')
+				stopPlayback();
+			else
+				startPlayback();			
+		}
+		function showSerializerDiv(showSubmit)
+		{
+			$("#drawingDiv").hide();
+			$("#serializerDiv").show();	
+			if (showSubmit)
+				$("#okBtn").show();
+			else
+				$("#okBtn").hide();
+		}
+
+		function hideSerializerDiv()
+		{
+			$("#drawingDiv").show();
+			$("#serializerDiv").hide();	
+		}
+
+		$("#deserializeBtn").click(function(){
+			showSerializerDiv(true);
+		});
+
+		$("#cancelBtn").click(function(){
+			hideSerializerDiv();
+		});
+
+		function selectjsons(jsonprefix){
+			var numbers = [];
+	
+				for (var i = 1; i <= 12; i++) {
+					numbers.push(i);
+				}
+	
+				// Randomly select a number from the array
+				var randomIndex = Math.floor(Math.random() * numbers.length);
+				var randomNumber = numbers[randomIndex];
+	
+				// Display the randomly selected number
+				console.log("Scribble file number:", randomNumber);
+	
+	
+			 filePath = jsonprefix +"recordingjson/" + randomNumber+ ".json";
+
+			
+		};
+		modData = null
+
+		async function modifyIntervals(url) {
+  try {
+    // Fetch the JSON data from the URL
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // Iterate through each item in the JSON data
+    data.forEach(item => {
+      // Check if the item has "actionsets" key
+      if (item.hasOwnProperty("actionsets")) {
+        // Iterate through each action set
+        item.actionsets.forEach(actionSet => {
+          // Check if the action set has "interval" key
+          if (actionSet.hasOwnProperty("interval")) {
+            // Divide the "interval" value by 2
+            actionSet.interval /= 3;
+          }
+        });
+      }
+    });
+
+    // Return the modified data
+	modData = JSON.stringify(data)
+	console.log(JSON.stringify(modData))
+	
+	
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
+  }
+}
+// console.log(modData);
+
+		//deserialize on page load
+	async	function deserializeLoad(page){
+
+			//pick a random file. 
+			selectjsons(page)
+			
+	
+				
+			
+			$.ajax({
+				url: filePath,
+				dataType: "text",
+				success: async function(data) {
+					// modifyIntervals(filePath)
+					console.log(data)
+					// Set the value of #serDataTxt to the fetched JSON string
+					$("#serDataTxt").val(data);
+					//data = modifyIntervals(data);
+					console.log(data)
+					await modifyIntervals(filePath)
+			
+					// Call the deserializeDrawing function with the fetched JSON string
+					var result = deserializeDrawing(modData);
+					if (result == null) {
+						result = "Error : Unknown error in deserializing the data";
+						$("#serDataTxt").val(result.toString());
+						showSerializerDiv(false);
+						return;
+					} else {
+						// Data is successfully deserialized
+						drawing.recordings = result;
+						// Set drawing property of each recording
+						for (var i = 0; i < result.length; i++)
+							result[i].drawing = drawing;
+						hideSerializerDiv();
+						playRecordings();
+					}
+				},
+				error: function(xhr, status, error) {
+					// Handle error if the file cannot be fetched
+					console.error("Error fetching JSON file:", error);
+				}
+			});
+		};
+
+	
+	function stopRecording()
+	{
+		$("#recordBtn").prop("value","Record");
+		$("#playBtn").show();
+		$("#pauseBtn").hide();
+		$("#clearBtn").show();
+		
+		drawing.stopRecording();
+	}
+	
+	function startRecording()
+	{
+		$("#recordBtn").prop("value","Stop");
+		$("#playBtn").hide();
+		$("#pauseBtn").hide();
+		// $("#clearBtn").hide();
+		
+		drawing.startRecording();
+	}
+	
+	function stopPlayback()
+	{
+		playbackInterruptCommand = "stop";		
+	}
+	
+	function startPlayback()
+	{
+		drawing.playRecording(function() {
+			//on playback start
+			$("#playBtn").prop("value","Stop");
+			$("#recordBtn").hide();
+			$("#pauseBtn").show();
+			// $("#clearBtn").hide();
+			playbackInterruptCommand = "";
+		}, function(){
+			//on playback end
+			$("#playBtn").prop("value","Play");
+			$("#playBtn").show();
+			$("#recordBtn").show();
+			$("#pauseBtn").hide();
+			// $("#clearBtn").show();
+		}, function() {
+			//on pause
+			$("#pauseBtn").prop("value","Resume");
+			$("#recordBtn").hide();
+			$("#playBtn").hide();
+			// $("#clearBtn").hide();
+		}, function() {
+			//status callback
+			return playbackInterruptCommand;
+		});
+	}
+	
+	function pausePlayback()
+	{
+		playbackInterruptCommand = "pause";
+	}
+	
+	function resumePlayback()
+	{
+		playbackInterruptCommand = "";
+		drawing.resumePlayback(function(){
+			$("#pauseBtn").prop("value","Pause");
+			$("#pauseBtn").show();
+			$("#recordBtn").hide();
+			$("#playBtn").show();
+			// $("#clearBtn").hide();
+		});
+	}
+
+
+
+
 function startScript(canvasId)
 { 
 	playbackInterruptCommand = "";
@@ -124,232 +338,8 @@ var xColor;
 
 
 	
-
-
-
-
-		//Ram's drawing functions.
-		
-		$("#recordBtn").click(function(){
-			var btnTxt = $("#recordBtn").prop("value");
-			if (btnTxt == 'Stop')
-				stopRecording();
-			else
-				startRecording();
-		});
-
-		$("#pauseRecordBtn").click(function(){
-			drawing.pauseRecording();
-		}
-		
-		);
-		
-
-		$("#resumeRecordBtn").click(function(){
-			drawing.resumeRecording();
-		})
-
-
-		$("#playBtn").click(playRecordings);
-
-		function playRecordings()
-		{
-			if (drawing.recordings.length == 0)
-			{
-				alert("No recording to play");
-				return;
-			}
-			var btnTxt = $("#playBtn").prop("value");
-			if (btnTxt == 'Stop')
-				stopPlayback();
-			else
-				startPlayback();			
-		}
-		
-		$("#pauseBtn").click(function(){
-			var btnTxt = $("#pauseBtn").prop("value");
-			if (btnTxt == 'Pause')
-			{
-				pausePlayback();
-			} else if (btnTxt == 'Resume')
-			{
-				resumePlayback();
-			}
-		});
-		$("#clearBtn").click(function(){
-			drawing.clearCanvas();			
-		});
-	
-		$("#serializeBtn").click(function() {
-			var serResult = serializeDrawing(drawing);
-			if (serResult != null)
-			{
-				$("#serDataTxt").val(serResult);
-				showSerializerDiv();
-			} else
-			{
-				alert("Error serializing data");
-			}
-		});
-
-
-		//Define the functions that the event handlers call. 
-
-
-		function showSerializerDiv(showSubmit)
-		{
-			$("#drawingDiv").hide();
-			$("#serializerDiv").show();	
-			if (showSubmit)
-				$("#okBtn").show();
-			else
-				$("#okBtn").hide();
-		}
-
-		function hideSerializerDiv()
-		{
-			$("#drawingDiv").show();
-			$("#serializerDiv").hide();	
-		}
-
-		$("#deserializeBtn").click(function(){
-			showSerializerDiv(true);
-		});
-
-		$("#cancelBtn").click(function(){
-			hideSerializerDiv();
-		});
-
-
-		//deserialize on page load
-
-
-
-
-
-		$(document).ready(function(){
-
-			//pick a random file. 
-
-			
-
-				var numbers = [];
-
-				for (var i = 1; i <= 14; i++) {
-					numbers.push(i);
-				}
-
-				// Randomly select a number from the array
-				var randomIndex = Math.floor(Math.random() * numbers.length);
-				var randomNumber = numbers[randomIndex];
-
-				// Display the randomly selected number
-				console.log("Scribble file number:", randomNumber);
-
-				
-
-            var filePath = "recordingjson/"+randomNumber+".json";
-
-            $.ajax({
-                url: filePath,
-                dataType: "text",
-                success: function(data) {
-                    // Set the value of #serDataTxt to the fetched JSON string
-                    $("#serDataTxt").val(data);
-            
-                    // Call the deserializeDrawing function with the fetched JSON string
-                    var result = deserializeDrawing(data);
-                    if (result == null) {
-                        result = "Error : Unknown error in deserializing the data";
-                        $("#serDataTxt").val(result.toString());
-                        showSerializerDiv(false);
-                        return;
-                    } else {
-                        // Data is successfully deserialized
-                        drawing.recordings = result;
-                        // Set drawing property of each recording
-                        for (var i = 0; i < result.length; i++)
-                            result[i].drawing = drawing;
-                        hideSerializerDiv();
-                        playRecordings();
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Handle error if the file cannot be fetched
-                    console.error("Error fetching JSON file:", error);
-                }
-            });
-        });
 	});
-	
-	function stopRecording()
-	{
-		$("#recordBtn").prop("value","Record");
-		$("#playBtn").show();
-		$("#pauseBtn").hide();
-		$("#clearBtn").show();
-		
-		drawing.stopRecording();
-	}
-	
-	function startRecording()
-	{
-		$("#recordBtn").prop("value","Stop");
-		$("#playBtn").hide();
-		$("#pauseBtn").hide();
-		$("#clearBtn").hide();
-		
-		drawing.startRecording();
-	}
-	
-	function stopPlayback()
-	{
-		playbackInterruptCommand = "stop";		
-	}
-	
-	function startPlayback()
-	{
-		drawing.playRecording(function() {
-			//on playback start
-			$("#playBtn").prop("value","Stop");
-			$("#recordBtn").hide();
-			$("#pauseBtn").show();
-			$("#clearBtn").hide();
-			playbackInterruptCommand = "";
-		}, function(){
-			//on playback end
-			$("#playBtn").prop("value","Play");
-			$("#playBtn").show();
-			$("#recordBtn").show();
-			$("#pauseBtn").hide();
-			$("#clearBtn").show();
-		}, function() {
-			//on pause
-			$("#pauseBtn").prop("value","Resume");
-			$("#recordBtn").hide();
-			$("#playBtn").hide();
-			$("#clearBtn").hide();
-		}, function() {
-			//status callback
-			return playbackInterruptCommand;
-		});
-	}
-	
-	function pausePlayback()
-	{
-		playbackInterruptCommand = "pause";
-	}
-	
-	function resumePlayback()
-	{
-		playbackInterruptCommand = "";
-		drawing.resumePlayback(function(){
-			$("#pauseBtn").prop("value","Pause");
-			$("#pauseBtn").show();
-			$("#recordBtn").hide();
-			$("#playBtn").show();
-			$("#clearBtn").hide();
-		});
-	}
 }
+
+
 

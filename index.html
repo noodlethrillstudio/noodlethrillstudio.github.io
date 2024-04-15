@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="cannonical" href="https://noodlethrillstudio.com"/>
     <link rel="stylesheet" href="app.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +21,10 @@
 
         <nav>
             <ul>
-                <li id="navhome"><a href="#home"><h4>Home</h4></a></li>
-                <li><a href="#showreel"><h4>Showreel</h4></a></li>
-                <li><a href="#portfolio"><h4>Portfolio</h4></a></li>
-                <li><a href="#contact"><h4>Contact</h4></a></li>
+                <li id="navhome"><a href="C:\Users\willa\Website\index.html"><h4>Home</h4></a></li>
+                <li><a href="C:\Users\willa\Website\showreel.html"><h4>Showreel</h4></a></li>
+                <li><a href="C:\Users\willa\Website\portfolio.html"><h4>Portfolio</h4></a></li>
+                <li><a href="C:\Users\willa\Website\contact.html"><h4>Contact</h4></a></li>
             </ul>
         </nav>
     </div>
@@ -42,27 +41,33 @@
             </div>
             <input id="slider" name='slider' type="range" min="1" max="20" value="5">
             
-            <button id="clear">x</button>
-            <button id="recordBtn">Record</button>
-            <button id="pauseRecordBtn">Pause Record</button>
-            <button id="resumeRecordBtn">Resume Record</button>
-            <button id="playBtn">Play</button>
-            <button id="pauseBtn">Pause</button>
-            <button id="clearBtn">Clear</button>
+            <button id="clear">x yours</button>
+            <button id="clearBtn">x mine</button>
+
+            <!-- 
+                THIS IS THE DEV SECTION FOR RECORDING NEW JSONS 
+                
+                <button class = "hide" id="recordBtn">Record</button>
+            <button class = "hide" id="pauseRecordBtn">Pause Record</button>
+            <button class = "hide" id="resumeRecordBtn">Resume Record</button>
+            <button class = "hide" id="playBtn">Play</button>
+            <button class = "hide" id="pauseBtn">Pause</button>
+            
             <br><br>
-            <button id="serializeBtn">Serialize</button>
-            <button id="deserializeBtn">Deserialize</button>
-        </div>
-            <div id="serializerDiv" style="display: none;">
+            <button class = "hide" id="serializeBtn">Serialize</button>
+            <button class = "hide" id="deserializeBtn">Deserialize</button>
+        
+            <div class = "hide" id="serializerDiv" style="display: none;">
                 Serialized Data: <textarea id="serDataTxt" cols="50" rows="10"></textarea><br>
                 <button id="okBtn">OK</button>
                 <button id="cancelBtn">Cancel</button>
-            </div>
+            </div> -->
+        </div>
     
 
     <!-- Home Page -->
     <section id="home">
-        <div class="header">
+        <div class="about">
             <h1>WILL CLARKE</h1>
             <p>ANIMATOR AND ARTIST</p>
             <p class="p1">Will is an artist who usually lives in Bristol, UK. He works in animation, utilising hand drawn, CG, mixed media and experimental workflows and he's been known to dabble in a bit of creative coding and scripting, too. His films have been selected in international festivals including Annecy, Monstra, Encounters, and Anifilm.</p>
@@ -74,47 +79,15 @@
         
     </section>
 
-    <!-- Showreel Page -->
-    <section id="showreel" style="display: none;">
-        <div class="header">
-            <h1>Showreel</h1>
-        </div>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/3nSoSd_DdcE" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <!-- Portfolio Page -->
-    <section id="portfolio" style="display: none;">
-        <div class="header">
-            <h1>Portfolio</h1>
-        </div>
-        <div class="project">
-            <h2>Project 1</h2>
-            <img src="placeholder1.jpg" alt="Project 1">
-        </div>
-        <div class="project">
-            <h2>Project 2</h2>
-            <img src="placeholder2.jpg" alt="Project 2">
-        </div>
-        <div class="project">
-            <h2>Project 3</h2>
-            <img src="placeholder3.jpg" alt="Project 3">
-        </div>
-    </section>
-
-    <!-- Contact Page -->
-    <section id="contact" style="display: none;">
-        <div class="header">
-            <h1>Contact</h1>
-        </div>
-        <p class="contact-info">Email: willaclarke@outlook.com</p>
-    </section>
-
-    <script src="app.js"></script>
-    <script src="main.js"></script>
     <script src="RecordableDrawing.js"></script>
+       <script src="app.js"></script>
+    <script src="main.js"></script>
+    
     <script src="serialize_deserialize.js"></script>
+    <script>$(document).ready(async function(){
+        
+       await deserializeLoad("index")
+    });</script>
     
 </body>
 </html>

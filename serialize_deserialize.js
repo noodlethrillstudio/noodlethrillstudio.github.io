@@ -103,7 +103,8 @@ function deserializeDrawing (serData)
 {
 	try
 	{
-		var recordings = JSON.parse(serData);
+		var recordings =  JSON.parse(serData);
+		console.log("jsonparsed")
 		var result = new Array();
 		if (recordings instanceof Array )
 		{
