@@ -23,10 +23,10 @@
 
         <nav>
             <ul>
-                <li id="navhome"><a href="\index.html"><h4>Home</h4></a></li>
-                <li><a href="\showreel.html"><h4>Showreel</h4></a></li>
-                <li><a href="\portfolio.html"><h4>Portfolio</h4></a></li>
-                <li><a href="\contact.html"><h4>Contact</h4></a></li>
+                <li id="navhome"><a href="index.html"><h4>Home</h4></a></li>
+                <li><a href="showreel.html"><h4>Showreel</h4></a></li>
+                <li><a href="portfolio.html"><h4>Portfolio</h4></a></li>
+                <li><a href="contact.html"><h4>Contact</h4></a></li>
             </ul>
         </nav>
     </div>
@@ -74,10 +74,15 @@
     <p class="contact-info">Email: willaclarke@outlook.com</p>
     
 
-    <script src="C:\Users\willa\Website\app.js"></script>
-    <script src="C:\Users\willa\Website\main.js"></script>
-    <script src="C:\Users\willa\Website\RecordableDrawing.js"></script>
-    <script src="C:\Users\willa\Website\serialize_deserialize.js"></script>
+    <script src="RecordableDrawing.js"></script>
+    <script src="app.js"></script>
+ <script src="main.js"></script>
+ 
+ <script src="serialize_deserialize.js"></script>
+    <script>$(document).ready(async function(){
+        
+        await deserializeLoad("contact")
+     });</script>
     
 </body>
 </html>

@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="app.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Noodle Thrill Studio</title>
+</head>
+<body>
+<header class="clearFix">   
+    <div class="navContainer">
+
+        <!-- Logo -->
+        <div class="logo">
+            <h3>WILL CLARKE /</h3>
+            <h3>NOODLE THRILL STUDIO</h3>
+        </div>
+        <!-- Navigation Bar -->
+
+        <nav>
+            <ul>
+                <li id="navhome"><a href="index.html"><h4>Home</h4></a></li>
+                <li><a href="showreel.html"><h4>Showreel</h4></a></li>
+                <li><a href="portfolio.html"><h4>Portfolio</h4></a></li>
+                <li><a href="contact.html"><h4>Contact</h4></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <!-- Canvas Container -->
+    <div class="canvas-container-port">
+        <!-- <canvas id="drawing-board" class="drawing-board"></canvas> -->
+        <canvas id="drawing-board-recording" class="drawing-board"></canvas>
+        <canvas id="drawing-board-user" class="drawing-board"></canvas>
+
+        <div id="toolbar">
+            <!-- Custom Color Wheel -->
+            <div id="color-wheel">
+            </div>
+            <input id="slider" name='slider' type="range" min="1" max="20" value="5">
+            
+            <button id="clear">x yours</button>
+            <button id="clearBtn">x mine</button>
+
+            <!--
+                THIS IS THE DEV SECTION FOR RECORDING NEW JSONS 
+
+                <button class = "hide" id="recordBtn">Record</button>
+            <button class = "hide" id="pauseRecordBtn">Pause Record</button>
+            <button class = "hide" id="resumeRecordBtn">Resume Record</button>
+            <button class = "hide" id="playBtn">Play</button>
+            <button class = "hide" id="pauseBtn">Pause</button>
+            
+            <br><br>
+            <button class = "hide" id="serializeBtn">Serialize</button>
+            <button class = "hide" id="deserializeBtn">Deserialize</button>
+        
+            <div class = "hide" id="serializerDiv" style="display: none;">
+                Serialized Data: <textarea id="serDataTxt" cols="50" rows="10"></textarea><br>
+                <button id="okBtn">OK</button>
+                <button id="cancelBtn">Cancel</button>
+            </div> -->
+        </div>
+    
+    <!-- Showreel Page -->
+    
+    
+
+    <div class="grid2"> 
+            <div class="title"><p class="title">Cyclist</p></div>
+           <div class="large">
+            <iframe  src="https://www.youtube.com/embed/xYJOgrMZs9I?si=QY_GUwBaYEwxllMU" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="medium"><p class = "modelText">This was a project I started to get to grips with all the different elements of blender, taking it from concept, modelling, rigging, to animation and lighting. I'm particularly happy with the latice deformer on the tires, allowing the tires to spin whilst staying deformed
+                in the same spot.</p></div>
+             
+              <div class="medium">
+                <img src="portfolio_assets/Cyclist_unposed.png" class="gallery_img_norm" alt="Image 3">
+              </div>
+
+              <div class="vlarge">
+                <img src="portfolio_assets/bicycle.png" class="gallery_img_norm" alt="Image 2">
+              </div>
+
+            </div>
+            
+            <div class="grid3"> 
+
+            <div class="title"><p class="title">The Balloon</p></div>
+
+              <div class="large">
+                <img src="portfolio_assets/police_front_on.png" class="gallery_img_norm" class="medium" alt="Image 4">
+              </div>
+
+              <div class="medium">
+                <img src="portfolio_assets/police_face.png" class="gallery_img_norm" alt="Image 5">
+              </div>
+
+              <div class="medium">
+                <iframe  src="https://www.youtube.com/embed/-8cmmwQgENA?si=wAZqHRShKu074TYH" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+                        web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+
+               <div class="medium"><p class = "balloonText">These models were created as a part of the NextGen bootcamp, and involved sculpting, 
+                retopologising, box modelling, and texturing and rigging.</p></div>
+                
+              <div class="large">
+                <iframe  src="https://www.youtube.com/embed/N6Can2t30D0?si=_R8FDQ-rwFRv1Gul" height="315" width="560"
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+                        web-share; looping" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+
+              <div class="medium"><p class = "balloonText">The buildings below were modelled and textured by Ellen Paynter, but assembled by me using Geometry nodes.
+                 We decided to use this method to let us create some slightly randomised buildings, and I wanted a good excuse to try out geometry nodes.
+                  Overall, they had some great advantages over scripting in ease of use, but did require more complicated node setups for something that could be 
+                  achieved in fewer lines of code. It worked well in this case, as it allowed the people building the environments to edit things easily.</p></div>
+            
+
+            <div class="medium">
+                <iframe  src="https://www.youtube.com/embed/O7JW_ubhy9k?si=MiSCeWTwOZFASP2A" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+                        web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+            
+            <div class="wide"><p class = "balloonText">A challenge here was creating a way for the textures to be changed per building instead of per texture, as the Geo Node editor doesn't work well with textures or colours in some aspects. 
+                In the end I took the "long quick" route and just duplicated a number of the textures and attached hue, saturation, and value inputs and manually attached them to iterations of different buildings, giving 
+                us over a hundred buildings to pick from without too much time or effort.</div>
+
+                <div class="medium"><p class = "balloonText">The titular Balloon. It was a simple model and rig, just a low poly body and a curve object for the string, but had some nice spline controllers that took a bit of fiddling with but could give some nice results.</div>
+
+                <div class="medium">
+                    <img src="portfolio_assets/balloon.png" class="gallery_img_norm" alt="Image balloon">
+                  </div>
+                  <div class="medium">
+                    <iframe  src="https://www.youtube.com/embed/XZ9qPGZeLTI?si=355vWEXBZjWGyKnE" 
+                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+                            web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+                 
+                 
+                 
+                  
+
+
+             
+       </div>
+        
+   
+    
+
+            <script src="RecordableDrawing.js"></script>
+            <script src="app.js"></script>
+         <script src="main.js"></script>
+         
+         <script src="serialize_deserialize.js"></script>
+
+    <script>$(document).ready(async function(){
+        
+      await deserializeLoad("portfolio")
+   });</script>
+    
+</body>
+</html>

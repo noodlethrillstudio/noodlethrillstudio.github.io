@@ -23,16 +23,16 @@
 
         <nav>
             <ul>
-                <li id="navhome"><a href="\index.html"><h4>Home</h4></a></li>
-                <li><a href="\showreel.html"><h4>Showreel</h4></a></li>
-                <li><a href="\portfolio.html"><h4>Portfolio</h4></a></li>
-                <li><a href="\contact.html"><h4>Contact</h4></a></li>
+                <li id="navhome"><a href="index.html"><h4>Home</h4></a></li>
+                <li><a href="showreel.html"><h4>Showreel</h4></a></li>
+                <li><a href="portfolio.html"><h4>Portfolio</h4></a></li>
+                <li><a href="contact.html"><h4>Contact</h4></a></li>
             </ul>
         </nav>
     </div>
 </header>
     <!-- Canvas Container -->
-    <div class="canvas-container">
+    <div class="canvas-container-port">
         <!-- <canvas id="drawing-board" class="drawing-board"></canvas> -->
         <canvas id="drawing-board-recording" class="drawing-board"></canvas>
         <canvas id="drawing-board-user" class="drawing-board"></canvas>
@@ -77,22 +77,22 @@
             <br> Animated Short Film. 
             <br>A tourist tries to push through a steadily gathering mass of people, growing into an enormous crowd creating a cacophony of sound.</p> -->
             <div class="medium">
-                <a href="throng.html"></a><img src="portfolio_assets/poster_laurels.png" class="gallery_img_norm" alt="Image 1">
+                <a href="https://vimeo.com/870022578"><img id= "throng" src="portfolio_assets/poster_laurels.png" class="gallery_img_norm" alt="Image 1"></a>
               </div>
               <div class="medium">
-                <img src="portfolio_assets/3.png" class="gallery_img_norm" alt="Image 2">
+                <a href="https://vimeo.com/492790386"><img id= "throng" src="portfolio_assets/3.png" class="gallery_img_norm" alt="Image 2"></a>
               </div>
               <div class="medium">
-                <img src="portfolio_assets/2.png" class="gallery_img_norm" alt="Image 3">
+                <a href="https://youtu.be/S7PPOlO36eY?si=GqPyHfMkwkxvYQU6"><img id= "throng" src="portfolio_assets/2.png" class="gallery_img_norm" alt="Image 3"></a>
               </div>
               <div class="medium">
-                <img src="portfolio_assets/oh_honey.png" class="gallery_img_norm" class="medium" alt="Image 4">
+                <a href="https://youtu.be/JGQDfeTNmIA?si=iVkMsSqZP8lUCBix"><img id= "throng" src="portfolio_assets/oh_honey.png" class="gallery_img_norm" class="medium" alt="Image 4"></a>
               </div>
               <div class="medium">
-                <img src="portfolio_assets/Fairy_disk.png" class="gallery_img_norm" alt="Image 5">
+                <a href="https://www.youtube.com/watch?v=hxhBDaKIQ14&ab_channel=NoodleThrillStudio"><img id= "throng" src="portfolio_assets/Fairy_disk.png" class="gallery_img_norm" alt="Image 5"></a>
               </div>
               <div class="medium">
-                <img src="portfolio_assets/GL_1.png" class="gallery_img_norm" alt="Image 6">
+                <a href="https://youtu.be/sOT3Muh8uK8?si=qpRstRcOUsFODiHq"><img id= "throng" src="portfolio_assets/GL_1.png" class="gallery_img_norm" alt="Image 6"></a>
               </div>
 
                <div class="tall">
@@ -110,10 +110,16 @@
    
     
 
-    <script src="C:\Users\willa\Website\app.js"></script>
-    <script src="C:\Users\willa\Website\main.js"></script>
-    <script src="C:\Users\willa\Website\RecordableDrawing.js"></script>
-    <script src="C:\Users\willa\Website\serialize_deserialize.js"></script>
+            <script src="RecordableDrawing.js"></script>
+            <script src="app.js"></script>
+         <script src="main.js"></script>
+         
+         <script src="serialize_deserialize.js"></script>
+
+    <script>$(document).ready(async function(){
+        
+      await deserializeLoad("portfolio")
+   });</script>
     
 </body>
 </html>
