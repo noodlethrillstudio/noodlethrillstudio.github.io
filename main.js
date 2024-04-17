@@ -146,6 +146,10 @@ $(document).ready(function(){
 			});
 		};
 
+		$("#clearBtn").click(function(){
+			drawing.clearCanvas();			
+		});
+
 	
 	function stopRecording()
 	{
