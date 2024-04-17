@@ -193,6 +193,10 @@ input[type="range"]::-webkit-slider-thumb{
     position: relative;
     z-index: 3; /* Ensure canvas container is above the canvas */
 }
+.canvas-container-port {
+    position: absolute;
+    z-index: 3; /* Ensure canvas container is above the canvas */
+}
 
 #color-wheel {
     width: 75px;
@@ -208,7 +212,7 @@ input[type="range"]::-webkit-slider-thumb{
     position: fixed;
     top: 40%;
     left: 2%;
-    z-index: 3; /* Toolbar sits above canvas */
+    z-index: 5; /* Toolbar sits above canvas */
     display: flex;
     flex-direction: column;
     padding: 10px ;
@@ -249,13 +253,52 @@ background-color: var(--color-headerbar);
   
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(6, 0.4375fr);
-         grid-gap: 0px;
-         
-         
-         
-        
+        grid-template-rows: repeat(3);
+         grid-gap: 0px;   
+         z-index: 0;       
     }
+    .grid2{
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(3);
+         grid-gap: 0px;   
+         z-index: 0;       
+    }
+    .grid3{
+        margin-top: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+              display: grid;
+              grid-template-columns: repeat(12, 1fr);
+              
+               grid-gap: 0px;   
+               z-index: 0;       
+}
+.modelText{
+margin-top: 1px;
+z-index: 0;
+color: #000000;
+font-size: 25px;
+padding: 10px;
+          }
+.balloonText{
+    margin-top: 1px;
+    z-index: 0;
+    padding: 10px;
+    color: #000000;
+    font-size: 25px;
+          }
+
+#throng{
+    border: none;
+}          
+#throng:hover{
+    opacity: 50%;
+    border: none;
+} 
  
 .gallery_img_norm{
    
@@ -264,31 +307,101 @@ background-color: var(--color-headerbar);
     object-fit: cover;
     margin: 0;
     padding: 0;
-    justify-content: center;
+ 
 }
 .medium{
     display: grid;
     grid-column: span 4;
+   
+    unicode-bidi: isolate;
+    z-index: 4;
+}
+.medium iframe{
+    display: grid;
+    grid-column: span 4;
+    padding: 0;
+   margin-left: 0;
+    unicode-bidi: isolate;
+    z-index: 4;
+    width:100%;
+    height: 100%;
+    
+    object-fit: cover;
+    justify-self: center;
+    
+    z-index: 4;
+}
+.large{
+    display: grid;
+    grid-column: span 8;
+    grid-row: span 2;
+   
+    unicode-bidi: isolate;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.large iframe{
+    display: grid;
+    grid-column: span 8;
+    grid-row: span 2;
+   padding: 0;
+   margin-left: 0;
+    unicode-bidi: isolate;
+    z-index: 4;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    justify-self: center;
+}
+.vlarge{
+    display: grid;
+    grid-column: span 12;
+    grid-row: span 3;
+    
+    unicode-bidi: isolate;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vlarge iframe{
+    display: grid;
+    grid-column: span 12;
+    grid-row: span 3;
+    padding: 0;
+    margin-left: 0;
+    unicode-bidi: isolate;
+    z-index: 4;
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+    justify-self: center;
 }
 .wide{
     display: grid;
-    grid-column: span 4;
+    grid-column: span 8;
     grid-row: span 1;
+    
+    unicode-bidi: isolate;
+    z-index: 4;
 }
 .tall{
     display: grid;
     grid-column: span 4;
     grid-row: span 2;
-    
-}
-div {
-    
-    margin-block-start: 1%;
-    margin-block-end: 1%;
-    margin-inline-start: 1%;
-    margin-inline-end: 1%;
+   
     unicode-bidi: isolate;
+    z-index: 4;
 }
+.title{
+    font-size: 28px;
+    grid-column: span 12;
+    justify-self: center;
+}
+
 
 .gallery_img_large{
     display: flex;
@@ -303,20 +416,6 @@ div {
     object-fit:none;
 }
 
-#throng{
-    
-    z-index: 5;
-    outline: solid black;
-    
-}
-#throngText{
-    
-    width: 640px;
-    height : 360px;
-    font-size: 18px;
-    text-align: center;
-    outline: solid #000000;
-}
 
 .video-container iframe {
     position: absolute;
