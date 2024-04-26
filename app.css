@@ -239,13 +239,13 @@ background-color: var(--color-headerbar);
 
 .video-container {
     position: relative;
-    --width-vidcont: 60%;
+    --width-vidcont: 40%;
     width: var(--width-vidcont);
     height:0;
-    margin-left: 20%;
-    margin-top: 5.5%;
-    padding-bottom: 33.9%; /* padding bottom at 100% width = 56.5% */   
-    margin-bottom: 4% ;
+    margin-left: 30%;
+   margin-top: 25%;
+    padding-bottom: 22.6%; /* padding bottom at 100% width = 56.5% */   
+   
     z-index: 5;
     
 }
@@ -419,11 +419,14 @@ padding: 10px;
 
 .video-container iframe {
     position: absolute;
-    top: 0;
+    
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 5;  
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+   
     
 }
 
