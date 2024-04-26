@@ -33,7 +33,7 @@
     <div class="canvas-container">
         <!-- <canvas id="drawing-board" class="drawing-board"></canvas> -->
         <canvas id="drawing-board-recording" class="drawing-board"></canvas>
-        <canvas id="drawing-board-user" class="drawing-board"></canvas>
+        <!-- <canvas id="drawing-board-user" class="drawing-board"></canvas> -->
 
         <div id="toolbar">
             <!-- Custom Color Wheel -->
@@ -44,8 +44,8 @@
             <button id="clear">del yours</button>
             <button id="clearBtn">del mine</button>
 
-            <!-- 
-                THIS IS THE DEV SECTION FOR RECORDING NEW JSONS 
+            
+                <!-- THIS IS THE DEV SECTION FOR RECORDING NEW JSONS  -->
                 
                 <button class = "hide" id="recordBtn">Record</button>
             <button class = "hide" id="pauseRecordBtn">Pause Record</button>
@@ -61,7 +61,7 @@
                 Serialized Data: <textarea id="serDataTxt" cols="50" rows="10"></textarea><br>
                 <button id="okBtn">OK</button>
                 <button id="cancelBtn">Cancel</button>
-            </div> -->
+            </div>
         </div>
     
 
@@ -70,7 +70,7 @@
         <div class="about">
             <h1>WILL CLARKE</h1>
             <p>ANIMATOR AND ARTIST</p>
-            <p class="p1">Will is an artist who usually lives in Bristol, UK. He works in animation utilising hand drawn, CG, mixed media and experimental workflows and he's been known to dabble in a bit of creative coding and scripting too. His films have been selected in international festivals including Annecy, Monstra, Encounters, and Anifilm.</p>
+            <p class="p1">Will is an artist who usually lives in Bristol, UK. He works in animation, utilising hand drawn, CG, mixed media and experimental workflows and he's been known to dabble in a bit of creative coding and scripting, too. His films have been selected in international festivals including Annecy, Monstra, Encounters, and Anifilm.</p>
             <p class="p1"><br></p>
             <p class="p1"><br>At the moment, he's probably working on something daft.</p> 
         </div>
@@ -78,15 +78,15 @@
         
         
     </section>
-
+  
     <script src="RecordableDrawing.js"></script>
        <script src="app.js"></script>
-    <script src="main.js"></script>
+       <script src="main.js"></script>
     
     <script src="serialize_deserialize.js"></script>
     <script>$(document).ready(async function(){
         
-       await deserializeLoad("index")
+       await deserializeLoad("index", 3)
     });</script>
     
 </body>
