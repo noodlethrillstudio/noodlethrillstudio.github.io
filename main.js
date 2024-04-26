@@ -482,12 +482,14 @@ var xColor;
 		//change the brush size when the slider is changed
 		slider.addEventListener('change', e => {
     
+			//reenable this for recording purposes:
 
-			if(e.target.id === 'slider') {
-				currentLineWidth = e.target.value;
-				drawing.setStrokeSize(currentLineWidth)
-			}
-			console.log("slider"+currentLineWidth)
-		});
+		// 	if(e.target.id === 'slider') {
+		// 		currentLineWidth = e.target.value;
+		// 		drawing.setStrokeSize(currentLineWidth)
+		// 	}
+		// 	console.log("slider"+currentLineWidth)
+		// });
 	});
-	}
+	});
+}
