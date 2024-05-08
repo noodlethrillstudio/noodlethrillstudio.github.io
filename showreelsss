@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="app.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Noodle Thrill Studio</title>
+</head>
+<body>
+<header class="clearFix">   
+    <div class="navContainer">
+
+        <!-- Logo -->
+        <div class="logo">
+            <h3>WILL CLARKE /</h3>
+            <h3>NOODLE THRILL STUDIO</h3>
+        </div>
+        <!-- Navigation Bar -->
+
+        <nav>
+            <ul>
+                <li id="navhome"><a href="index.html"><h4>Home</h4></a></li>
+                <li><a href="showreel.html"><h4>Showreel</h4></a></li>
+                <li><a href="portfolio.html"><h4>Portfolio</h4></a></li>
+                <li><a href="contact.html"><h4>Contact</h4></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <!-- Canvas Container -->
+    <div class="canvas-container">
+        <canvas id="drawing-board-recording" class="drawing-board"></canvas>
+        <canvas id="drawing-board-user" class="drawing-board"></canvas>
+
+        <div id="toolbar">
+            <!-- Custom Color Wheel -->
+            <div id="color-wheel">
+            </div>
+            <input id="slider" name='slider' type="range" min="1" max="20" value="5">
+            
+            <button id="clear">del yours</button>
+            <button id="clearBtn">del mine</button>
+
+            
+                <!-- THIS IS THE DEV SECTION FOR RECORDING NEW JSONS  -->
+                
+                <!-- <button class = "hide" id="recordBtn">Record</button>
+            <button class = "hide" id="pauseRecordBtn">Pause Record</button>
+            <button class = "hide" id="resumeRecordBtn">Resume Record</button>
+            <button class = "hide" id="playBtn">Play</button>
+            <button class = "hide" id="pauseBtn">Pause</button>
+            
+            <br><br>
+            <button class = "hide" id="serializeBtn">Serialize</button>
+            <button class = "hide" id="deserializeBtn">Deserialize</button>
+        
+            <div class = "hide" id="serializerDiv" style="display: none;">
+                Serialized Data: <textarea id="serDataTxt" cols="50" rows="10"></textarea><br>
+                <button id="okBtn">OK</button>
+                <button id="cancelBtn">Cancel</button>
+            </div> -->
+        </div>
+    
+    <!-- Showreel Page -->
+    
+        
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/a8RfHD6WEsg?si=WJoUmsScIDGJczmh" frameborder="0" allowfullscreen></iframe>
+        </div>
+    
+
+        <script src="RecordableDrawing.js"></script>
+        <script src="app.js"></script>
+     <script src="main.js"></script>
+     
+     <script src="serialize_deserialize.js"></script>
+    <script>$(document).ready(async function(){
+        
+        await deserializeLoad("showreelsss",1000)
+     });</script>
+    
+</body>
+</html>
